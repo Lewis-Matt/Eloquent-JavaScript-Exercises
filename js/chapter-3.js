@@ -57,6 +57,14 @@ function min(a, b) {
 }
 
 console.log(min(7, 5));
+// BOOK SOLUTION
+/*
+function min(a, b) {
+    if (a < b) return a;
+    else return b;
+}
+// Doesn't cover a = b
+*/
 // Could have also used switch statement
 console.log('------------------EXERCISE 2-------------------------');
 // We can use % 2 === 0 to determine whether a number is even or odd, another way to define whether a whole number is even or odd is:
@@ -67,6 +75,10 @@ console.log('------------------EXERCISE 2-------------------------');
 // Also test it on -1, how can you fix it?
 function isEven(num) {
     let N = num;
+    // When we enter -1, we get 'maximum call stack size exceeded', this checks for negative numbers and makes them positive
+    if (N < 0) {
+        N = N * -1;
+    }
     if (N === 0) {
         return true;
     } else if (N === 1) {
@@ -77,13 +89,49 @@ function isEven(num) {
     }
 }
 
-console.log(isEven(56));
-// When we enter -1, we get 'maximum call stack size exceeded'
-
+// BOOK SOLUTION
+/*
+function isEven(n) {
+  if (n == 0) return true;
+  else if (n == 1) return false;
+  else if (n < 0) return isEven(-n);
+  else return isEven(n - 2);
+}
+*/
+console.log(isEven(-6));
 console.log('------------------EXERCISE 3-------------------------');
 // You can get the Nth char from a string by accessing it's index: string[N].
 // The last character can be accessed via string.length-1 (since we start at 0). Or: str.slice(-1); Or: str.charAt(str.length - 1); Or: str[str.length - 1];
 // Write a function called countBs that takes a string as its argument, and returns a number that indicates how many uppercase 'B' chars there are in the string.
-// Next write a function called countChar that behaves like countBs, except it takes a second argument  that indicates the char that is to be counted (rather than just the B's).
-// Rewrite countBs to make use of this new function.
 
+function countBs(str) {
+    let countB = 0;
+    for (let i = 0; i < str.length; i++) {
+        if (str[i] === 'B') {
+            countB++;
+        }
+    }
+    return countB;
+}
+
+console.log(countBs('ButtbuttButt'));
+
+// Next write a function called countChar that behaves like countBs, except it takes a second argument  that indicates the char that is to be counted (rather than just the B's).
+function countChars(str, char) {
+    let countChar = 0;
+    for (let i = 0; i < str.length; i++) {
+        if (str[i] === char) {
+            countChar++;
+        }
+    }
+    return countChar;
+}
+
+console.log(countChars('Orange is my favorite color', 'o'));
+
+// Rewrite countBs to make use of this new function.
+function countBs2(str) {
+    return countChars(str, 'B');
+}
+
+console.log(countBs2('ButtbuttButt'));
