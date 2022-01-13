@@ -44,3 +44,46 @@ printFarmInventoryModified(7, 11, 9);
 // The above is about 25% less code, and it is exponentially less code the more types of animals you add.
 // A function with a nice, obvious name of zeroPad makes it easier for someone who reads it to figure out what it does.
 // zeroPad is useful in more situations than just this specific program (re-usability).
+console.log('------------------EXERCISE 1-------------------------');
+
+// Write your own version of Math.min(a,b)
+function min(a, b) {
+    if (a < b) {
+        return a;
+    } else if (a > b) {
+        return b;
+    }
+    return 'a = b';
+}
+
+console.log(min(7, 5));
+// Could have also used switch statement
+console.log('------------------EXERCISE 2-------------------------');
+// We can use % 2 === 0 to determine whether a number is even or odd, another way to define whether a whole number is even or odd is:
+// Zero is even
+// One is odd
+// Any number N, its evenness is the same as N - 2
+// Define a recursive function isEven that corresponds to this description. It takes in a single argument (whole number) and returns a boolean.
+// Also test it on -1, how can you fix it?
+function isEven(num) {
+    let N = num;
+    if (N === 0) {
+        return true;
+    } else if (N === 1) {
+        return false;
+    } else {
+        N = isEven(N - 2);
+        return N;
+    }
+}
+
+console.log(isEven(56));
+// When we enter -1, we get 'maximum call stack size exceeded'
+
+console.log('------------------EXERCISE 3-------------------------');
+// You can get the Nth char from a string by accessing it's index: string[N].
+// The last character can be accessed via string.length-1 (since we start at 0). Or: str.slice(-1); Or: str.charAt(str.length - 1); Or: str[str.length - 1];
+// Write a function called countBs that takes a string as its argument, and returns a number that indicates how many uppercase 'B' chars there are in the string.
+// Next write a function called countChar that behaves like countBs, except it takes a second argument  that indicates the char that is to be counted (rather than just the B's).
+// Rewrite countBs to make use of this new function.
+
