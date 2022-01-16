@@ -12,3 +12,11 @@ console.log(obj1);
 
 // obj3 is its own object, with the same key:value as obj1, it lives a separate life
 
+// A DEEP copy can be achieved via
+let obj4 = {value: 10};
+let obj5 = JSON.parse(JSON.stringify(obj4));
+console.log(obj5);
+delete obj5.value;
+console.log(obj4);
+
+
