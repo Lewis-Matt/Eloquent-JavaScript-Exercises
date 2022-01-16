@@ -21,7 +21,7 @@ function printFarmInventory(cows, chickens) {
 }
 
 printFarmInventory(7, 11);
-// To add pigs, we'd have to add another block and copy and paste the code from 10-14 and change update it for pigs
+// To add pigs, we'd have to add another block and copy and paste the code from 10-14 and update it for pigs
 // A better way:
 console.log('-------------------------------------------');
 
@@ -74,6 +74,7 @@ console.log('------------------EXERCISE 2-------------------------');
 // Define a recursive function isEven that corresponds to this description. It takes in a single argument (whole number) and returns a boolean.
 // Also test it on -1, how can you fix it?
 function isEven(num) {
+    // I also could have just used N as the argument name  ¯\_(ツ)_/¯
     let N = num;
     // When we enter -1, we get 'maximum call stack size exceeded', this checks for negative numbers and makes them positive
     if (N < 0) {
@@ -116,7 +117,7 @@ function countBs(str) {
 
 console.log(countBs('ButtbuttButt'));
 
-// Next write a function called countChar that behaves like countBs, except it takes a second argument  that indicates the char that is to be counted (rather than just the B's).
+// Next write a function called countChar that behaves like countBs, except it takes a second argument that indicates the char that is to be counted (rather than just the B's).
 function countChars(str, char) {
     let countChar = 0;
     for (let i = 0; i < str.length; i++) {
