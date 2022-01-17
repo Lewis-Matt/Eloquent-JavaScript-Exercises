@@ -1,3 +1,4 @@
+// Note: If a property value in brace notation isn't followed by a value, its value is taken from the binding with the same name.
 var JOURNAL = [
   {"events":["carrot","exercise","weekend"],"squirrel":false},
   {"events":["bread","pudding","brushed teeth","weekend","touched tree"],"squirrel":false},
