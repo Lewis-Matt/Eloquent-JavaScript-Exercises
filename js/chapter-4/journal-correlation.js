@@ -60,16 +60,6 @@ function max(...numbers) {
   return result;
 }
 
-var list = {
-  value: 1,
-  rest: {
-    value: 2,
-    rest: {
-      value: 3,
-      rest: null
-    }
-  }
-};
 
 // Imports JOURNAL array
 const JOURNAL = require('./journal.js');
