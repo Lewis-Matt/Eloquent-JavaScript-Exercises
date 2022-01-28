@@ -77,7 +77,8 @@ console.log(reverseArrayInPlace(testArray));
 
 console.log('------------------A LIST-------------------------');
 // A list is a nested set of objects, with the first object holding a reference to the second, the second to the third, and so on.
-var list = {
+// LIST USED AS REFERENCE AND FOR TESTING
+let testList = {
     value: 1,
     rest: {
         value: 2,
@@ -131,9 +132,15 @@ let listToArray = function (list) {
     }
     return array;
 }
-console.log(listToArray(list));
+console.log(listToArray(testList));
 
-// Then add a helper function prepend, which takes an element and a list ßand creates a new list that adds the element to the front of the input list, and nth, which takes a list and a number and returns the element at the given position in the list (with zero referring to the first element) or undefined when there is no such element.
+// Then add a helper function prepend, which takes an element and a list and creates a new list that adds the element to the front of the input list.
+let prepend = (element, list) => {
+    return {element, rest: list}
+}
+console.log(prepend(4, testList));
+
+// Write nth, which takes a list and a number and returns the element at the given position in the list (with zero referring to the first element) or undefined when there is no such element.
 
 // If you haven’t already, also write a recursive version of nth.
 
