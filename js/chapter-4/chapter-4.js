@@ -89,6 +89,31 @@ var list = {
 };
 
 // Write a function arrayToList that builds up a list structure like the one shown when given [1, 2, 3] as argument.
+// ATTEMPT 1
+/*let arrayToList = function(array) {
+    let list = {};
+    array.forEach(element => {
+        list.value = element;
+        list.rest = list;
+    })
+    return list;
+}
+console.log(arrayToList([1, 2, 3]));*/
+
+// ATTEMPT 2
+let arrayToList = function (array) {
+    // Base case
+    let list = null;
+    // Loops through each element of the array - need to reverse the array otherwise the list is in descending order
+    // debug and step-in to see what is happening
+    array.slice().reverse().forEach(element => {
+        // The first iteration sets the value: 3, rest:null.
+        // Loop goes to the second element (2) and sets the value: 2, rest: {object created in 1st iteration} etc.
+        list = {value: element, rest: list};
+    })
+    return list;
+}
+console.log(arrayToList([1, 2, 3]))
 
 
 // Also write a listToArray function that produces an array from a list.
