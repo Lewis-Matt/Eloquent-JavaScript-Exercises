@@ -185,3 +185,36 @@ console.log('------------------DEEP COMPARISON-------------------------');
 // Write a function deepEqual that takes two values and returns true only if they are the same value or are objects with the same properties, where the values of the properties are equal when compared with a recursive call to deepEqual.
 // To find out whether values should be compared directly (use the === operator for that) or have their properties compared, you can use the typeof operator. If it produces "object" for both values, you should do a deep comparison. But you have to take one silly exception into account: because of a historical accident, typeof null also produces "object".
 // The Object.keys function will be useful when you need to go over the properties of objects to compare them.
+let deepEqual = function (x, y) {
+    // If x and y have the same value (or they are identical objects)
+    if (x === y) {
+        return true;
+    }
+    // Handle 'null' and if neither x nor y are not objects
+    if (x == null || typeof x != 'object' || y == null || typeof y != 'object') {
+        return false;
+    }
+    // Otherwise, both x and y must be objects, start deep comparison:
+    // Object.keys() method returns an array of a given object's own enumerable property names, iterated in the same order that a normal loop would.
+    let xKeys = Object.keys(x);
+    let yKeys = Object.keys(y);
+    // Compare the length of both Keys arrays. If they are not the same, we stop the comparison:
+    if (xKeys.length !== yKeys.length) {
+        return false;
+    }
+    // Loop through the keys in xKeys (if there are nested objects)
+    for (let key of xKeys) {
+        // Check if each key also exists in yKeys OR recursively call deepEqual (handles nested objects). If either condition is false, return false.
+        // The includes() method determines whether an array includes a certain value among its entries, returning true or false as appropriate.
+        if (!yKeys.includes(key) || !deepEqual(x[key], y[key])) {
+            return false;
+        }
+    }
+    // If you made it this far, x and y must be equal!
+    return true;
+}
+let testObj = {here: {is: "an"}, object: 2};
+let testObj2 = {here: {is: "an"}, object: 3};
+console.log(deepEqual(testObj, testObj));
+console.log(deepEqual(7, 7))
+console.log(deepEqual(testObj, testObj2))
