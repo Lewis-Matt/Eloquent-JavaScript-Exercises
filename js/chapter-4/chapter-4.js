@@ -100,7 +100,7 @@ let testList = {
     return list;
 }
 console.log(arrayToList([1, 2, 3]));*/
-
+console.log('--------ARRAY TO LIST--------')
 // ATTEMPT 2
 let arrayToList = function (array) {
     // Base case
@@ -116,6 +116,7 @@ let arrayToList = function (array) {
 }
 console.log(arrayToList([1, 2, 3]))
 
+console.log('--------LIST TO ARRAY--------')
 // Also write a listToArray function that produces an array from a list.
 let listToArray = function (list) {
     // Set array to equal the value property of the list; in this case 1 (as the second property name is 'rest')
@@ -134,27 +135,49 @@ let listToArray = function (list) {
 }
 console.log(listToArray(testList));
 
+console.log('--------PREPEND--------')
 // Then add a helper function prepend, which takes an element and a list and creates a new list that adds the element to the front of the input list.
 let prepend = (element, list) => {
     return {element, rest: list}
 }
 console.log(prepend(4, testList));
 
+console.log('--------NTH--------')
 // Write nth, which takes a list and a number (index) and returns the element at the given position in the list (with zero referring to the first element) or undefined when there is no such element.
+// 1st Attempt
+/*let nth = (list, number) => {
+    for (const property in list) {
+        while(list.rest !== null) {
+
+            list = list.rest;
+
+        }
+    }
+}*/
+// 2nd Attempt - KEEP IT D.R.Y.!!!
+let nth = function (list, number) {
+    // NO IDEA WHY IT DOESN'T WORK WHEN SURROUND BY () : return listToArray((list)[array]) gives typeError...
+    // NVM: listToArray(list) is the function call, and I am saying that I want the [index] of listToArray(list)'s return value (which is an array, obviously)
+    return listToArray(list)[number];
+}
+console.log(nth(testList, 1));
+
+
 // HAD TO USE BOOK SOLUTION ON THIS
 // If you haven’t already, also write a recursive version of nth.
-let nth = (list, number) => {
+console.log('--------NTH RECURSIVE--------')
+let nthR = (list, number) => {
+    // If list is not null
     if (!list) {
         return undefined;
     } else if (number === 0) {
         return list.value;
     } else {
         // Run nth(list,number) with list.rest being the next node until we get to our base case number === 0
-        return nth(list.rest, number - 1);
+        return nthR(list.rest, number - 1);
     }
 }
-console.log(nth(testList, 1));
-
+console.log(nthR(testList, 1));
 
 
 console.log('------------------DEEP COMPARISON-------------------------');

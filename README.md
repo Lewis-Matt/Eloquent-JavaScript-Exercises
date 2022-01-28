@@ -14,8 +14,9 @@
 - Correlation function
 - Import/Export
 - range()
-- Linked List
--- from array
--- list to array
--- for..in loop to loop through object properties
 - Reverse Array (in place)
+####Linked List
+- from array
+- list to array
+- for...in loop to loop through object properties
+- accessing a specific index of a function (that calls a function) return value: nth(listToArray(list)[index]) 
