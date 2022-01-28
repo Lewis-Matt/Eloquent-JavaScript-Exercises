@@ -14,5 +14,8 @@
 - Correlation function
 - Import/Export
 - range()
-- List
+- Linked List
+-- from array
+-- list to array
+-- for..in loop to loop through object properties
 - Reverse Array (in place)
