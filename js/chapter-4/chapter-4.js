@@ -140,9 +140,21 @@ let prepend = (element, list) => {
 }
 console.log(prepend(4, testList));
 
-// Write nth, which takes a list and a number and returns the element at the given position in the list (with zero referring to the first element) or undefined when there is no such element.
-
+// Write nth, which takes a list and a number (index) and returns the element at the given position in the list (with zero referring to the first element) or undefined when there is no such element.
+// HAD TO USE BOOK SOLUTION ON THIS
 // If you haven’t already, also write a recursive version of nth.
+let nth = (list, number) => {
+    if (!list) {
+        return undefined;
+    } else if (number === 0) {
+        return list.value;
+    } else {
+        // Run nth(list,number) with list.rest being the next node until we get to our base case number === 0
+        return nth(list.rest, number - 1);
+    }
+}
+console.log(nth(testList, 1));
+
 
 
 console.log('------------------DEEP COMPARISON-------------------------');
