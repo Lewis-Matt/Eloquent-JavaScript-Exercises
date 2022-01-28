@@ -115,10 +115,25 @@ let arrayToList = function (array) {
 }
 console.log(arrayToList([1, 2, 3]))
 
-
 // Also write a listToArray function that produces an array from a list.
+let listToArray = function (list) {
+    // Set array to equal the value property of the list; in this case 1 (as the second property name is 'rest')
+    let array = [list.value];
+    // Loops through the properties of the object
+    for (const property in list) {
+        // Continue looping though each 'rest' property (which is an object with the first property of 'value') until we hit null.
+        while (list.rest !== null) {
+            // Set the list to be the next node in the linked list
+            list = list.rest;
+            // Add the 'value' properties value of each node to our array
+            array.push(list.value)
+        }
+    }
+    return array;
+}
+console.log(listToArray(list));
 
-// Then add a helper function prepend, which takes an element and a list and creates a new list that adds the element to the front of the input list, and nth, which takes a list and a number and returns the element at the given position in the list (with zero referring to the first element) or undefined when there is no such element.
+// Then add a helper function prepend, which takes an element and a list ßand creates a new list that adds the element to the front of the input list, and nth, which takes a list and a number and returns the element at the given position in the list (with zero referring to the first element) or undefined when there is no such element.
 
 // If you haven’t already, also write a recursive version of nth.
 
