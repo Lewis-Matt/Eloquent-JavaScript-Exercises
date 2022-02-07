@@ -8,7 +8,7 @@ let obj3 = {value: 10};
 // obj1 and obj2 grasp the same object, they are said to have the same IDENTITY, which is why changing obj2 changes obj1 as well.
 // obj2 is a SHALLOW copy of obj1
 delete obj2.value;
-console.log(obj1);
+console.log(obj1); // she gone
 
 // obj3 is its own object, with the same key:value as obj1, it lives a separate life
 
