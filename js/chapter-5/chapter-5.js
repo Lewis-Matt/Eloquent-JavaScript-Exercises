@@ -38,3 +38,38 @@ repeat(3, n => {
     })
 })
 
+// Import array
+const SCRIPTS = require('./scripts.js');
+
+// FILTER OUT ELEMENTS THAT DON'T PASS A TEST (test is the callback you create)
+function myFilter(array, test) {
+    let passed = [];
+    for (let element of array) {
+        if (test(element)) {
+            passed.push(element);
+        }
+    }
+    return passed;
+}
+console.log(myFilter(SCRIPTS, script => script.living));
+// This was a pure function - doesn't modify original array
+// The above is to just show of the standard .filter() method works under the hood
+
+// Ex using filter method
+console.log(SCRIPTS.filter(script => script.direction === 'ttb'));
+
+// MAP - creates a new array populated with the results of calling a provided function on every element in the calling array.
+// Map the SCRIPTS array to a new form
+// First new filtered array of rtl scripts
+let rtlScripts = SCRIPTS.filter(script => script.direction === 'rtl')
+// Map by name
+console.log(rtlScripts.map(scripts => scripts.name))
+
+// How map works - transform is the callback you create
+function myMap(array, transform) {
+    let mapped = [];
+    for (let element of array) {
+        mapped.push(transform(element));
+    }
+    return mapped
+}

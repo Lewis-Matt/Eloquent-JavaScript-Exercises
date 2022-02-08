@@ -3,8 +3,6 @@
 //
 // The ranges property contains an array of Unicode character ranges, each of which is a two-element array containing a lower bound and an upper bound. Any character codes within these ranges are assigned to the script. The lower bound is inclusive , and the upper bound is non-inclusive.
 
-
-
 var SCRIPTS = [
   {
     name: "Adlam",
