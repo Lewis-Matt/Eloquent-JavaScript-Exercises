@@ -24,3 +24,11 @@
 - for...of
 - Object.keys()
 - .includes()
+
+### Chapter 5
+- Higher-order functions
+- filter
+- map
+- reduce
+- [from, to] destructuring -> https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
+- 
