@@ -31,4 +31,5 @@
 - map
 - reduce
 - [from, to] destructuring -> https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
+- some()
 - 
