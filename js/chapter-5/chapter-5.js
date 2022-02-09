@@ -238,9 +238,10 @@ function every(array, test) {
     }
     return true
 }
+
 // Using some
 function everySome(array, test) {
-    return !array.some(element=> !test(element));
+    return !array.some(element => !test(element));
 }
 
 console.log(every([1, 3, 5], n => n < 10));
@@ -263,9 +264,26 @@ console.log('--------------EXERCISE: DOMINANT WRITING DIRECTION---------------')
 //
 // Finding the direction with the highest character count can be done with reduce. If it’s not clear how, refer to the example earlier in the chapter, where reduce was used to find the script with the most characters.
 
+// BOOK SOLUTION BECAUSE IDK:
 function dominantDirection(text) {
-    // Your code here.
+    let counted = countBy(text, char => {
+        let script = characterScript(char.codePointAt(0));
+        if (script) {
+            return script.direction
+        }
+        return "none"
+    }).filter(({name}) => name != "none");
+
+    if (counted.length === 0) return "ltr";
+
+    return counted.reduce((a, b) => {
+        if (a.count > b.count) {
+            return a
+        }
+        return b
+    }).name;
 }
+
 
 console.log(dominantDirection("Hello!"));
 // → ltr
