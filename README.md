@@ -34,4 +34,5 @@
 - some()
 - every()
 - codePointAt()
+- flatten array with reduce and concat
 - 
