@@ -35,4 +35,5 @@
 - every()
 - codePointAt()
 - flatten array with reduce and concat
-- 
+- custom for loop with functions as arguments
+- every from scratch
